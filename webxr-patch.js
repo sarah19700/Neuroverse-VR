@@ -132,7 +132,6 @@
         }
 
         // Bind the existing WebGL context to XR
-        await gl.makeXRCompatible();
         const layer = new XRWebGLLayer(xrSession, gl);
         xrSession.updateRenderState({ baseLayer: layer });
 

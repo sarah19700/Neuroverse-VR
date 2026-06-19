@@ -20,9 +20,7 @@
       --text: #e8e6f0;
       --muted: rgba(232,230,240,0.4);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html, body {
       width: 100%; height: 100%;
       background: var(--bg);
@@ -30,58 +28,27 @@
       font-family: 'Syne', sans-serif;
       overflow: hidden;
     }
-
-
-
-    /* ── LOADING SCREEN ── */
     #loader {
-      position: fixed;
-      inset: 0;
-      background: var(--bg);
-      z-index: 100;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
+      position: fixed; inset: 0;
+      background: var(--bg); z-index: 100;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 32px;
       transition: opacity 0.8s ease, visibility 0.8s ease;
     }
     #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-
-    .loader-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .loader-logo img {
-      width: 56px;
-      height: 56px;
-      object-fit: contain;
-    }
+    .loader-logo { display: flex; align-items: center; gap: 12px; }
+    .loader-logo img { width: 56px; height: 56px; object-fit: contain; }
     .loader-logo-text {
-      font-size: 30px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
+      font-size: 30px; font-weight: 800; letter-spacing: -0.5px;
       background: linear-gradient(135deg, #a78bfa, #7c6aff, #c084fc);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
     }
-
-    .loader-bar-wrap {
-      width: 260px;
-      height: 2px;
-      background: var(--border);
-      border-radius: 999px;
-      overflow: hidden;
-    }
+    .loader-bar-wrap { width: 260px; height: 2px; background: var(--border); border-radius: 999px; overflow: hidden; }
     .loader-bar {
-      height: 100%;
-      width: 0%;
+      height: 100%; width: 0%;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border-radius: 999px;
-      box-shadow: 0 0 12px var(--accent);
+      border-radius: 999px; box-shadow: 0 0 12px var(--accent);
       animation: indeterminate 1.6s ease infinite;
     }
     @keyframes indeterminate {
@@ -89,136 +56,66 @@
       50%  { width: 60%; margin-left: 20%; }
       100% { width: 0%;  margin-left: 100%; }
     }
-
-    .loader-text {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-    }
-
-    /* ── UI OVERLAY ── */
-    #ui {
-      position: fixed;
-      inset: 0;
-      z-index: 10;
-      pointer-events: none;
-      opacity: 0;
-      animation: fadeIn 0.6s ease 0.5s forwards;
-    }
+    .loader-text { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+    #ui { position: fixed; inset: 0; z-index: 10; pointer-events: none; opacity: 0; animation: fadeIn 0.6s ease 0.5s forwards; }
     @keyframes fadeIn { to { opacity: 1; } }
-
-    /* ── TOP BAR ── */
     #topbar {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: absolute; top: 0; left: 0; right: 0;
+      padding: 18px 24px; display: flex; align-items: center; justify-content: space-between;
       background: linear-gradient(to bottom, rgba(7,8,15,0.85) 0%, transparent 100%);
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .brand img {
-      width: 36px;
-      height: 36px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 8px rgba(124,106,255,0.6));
-    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand img { width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(124,106,255,0.6)); }
     .brand-name {
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: -0.3px;
+      font-size: 17px; font-weight: 800; letter-spacing: -0.3px;
       background: linear-gradient(135deg, #a78bfa, #7c6aff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
     }
-
+    .btn-group { display: flex; align-items: center; gap: 8px; }
     .btn {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      font-family: 'Syne', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: all 0.2s ease;
-      letter-spacing: 0.02em;
-      pointer-events: all;
+      display: flex; align-items: center; gap: 7px;
+      padding: 8px 14px; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text); font-family: 'Syne', sans-serif;
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      transition: all 0.2s ease; letter-spacing: 0.02em;
+      pointer-events: all; white-space: nowrap;
     }
-    .btn:hover {
-      border-color: rgba(124,106,255,0.5);
-      background: rgba(124,106,255,0.12);
-      box-shadow: 0 0 16px rgba(124,106,255,0.15);
+    .btn:hover { border-color: rgba(124,106,255,0.5); background: rgba(124,106,255,0.12); box-shadow: 0 0 16px rgba(124,106,255,0.15); }
+    .btn.vr-btn {
+      border-color: rgba(124,106,255,0.4);
+      background: linear-gradient(135deg, rgba(124,106,255,0.15), rgba(192,132,252,0.1));
     }
-
-    /* ── BOTTOM BAR ── */
+    .btn.vr-btn:hover {
+      border-color: rgba(124,106,255,0.8);
+      background: linear-gradient(135deg, rgba(124,106,255,0.3), rgba(192,132,252,0.2));
+      box-shadow: 0 0 24px rgba(124,106,255,0.3);
+    }
+    .btn.vr-btn.unavailable { opacity: 0.35; cursor: default; }
+    .btn.vr-btn.unavailable:hover { border-color: rgba(124,106,255,0.4); background: linear-gradient(135deg, rgba(124,106,255,0.15), rgba(192,132,252,0.1)); box-shadow: none; }
     #bottombar {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 20px 24px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 20px 24px; display: flex; align-items: flex-end; justify-content: space-between;
       background: linear-gradient(to top, rgba(7,8,15,0.85) 0%, transparent 100%);
     }
-
-    .scene-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .scene-title {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-    }
-    .scene-sub {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
-      font-weight: 400;
-    }
-
-    .hint {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity 1s ease;
-    }
+    .scene-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px; }
+    .scene-title { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+    .scene-sub { font-size: 12px; color: var(--muted); margin-top: 2px; font-weight: 400; }
+    .hint { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.08em; display: flex; align-items: center; gap: 6px; transition: opacity 1s ease; }
     .hint.hidden { opacity: 0; }
-
-    .hint-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      animation: pulse 2s ease infinite;
+    .hint-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); animation: pulse 2s ease infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+    #vr-toast {
+      position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%);
+      background: rgba(20,18,35,0.95); border: 1px solid rgba(124,106,255,0.3);
+      border-radius: 12px; padding: 12px 20px;
+      font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted);
+      letter-spacing: 0.05em; z-index: 50; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease; text-align: center; max-width: 300px;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.4; transform: scale(0.7); }
-    }
+    #vr-toast.visible { opacity: 1; }
   </style>
 </head>
 <body>
@@ -230,9 +127,7 @@
       <span class="loader-logo-text">NeuroVerse</span>
     </div>
     <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
-      <div class="loader-bar-wrap">
-        <div class="loader-bar"></div>
-      </div>
+      <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
       <div class="loader-text">Loading neural scene...</div>
     </div>
   </div>
@@ -244,12 +139,24 @@
         <img src="logo.png" alt="NV" onerror="this.style.display='none'"/>
         <span class="brand-name">NeuroVerse</span>
       </div>
-      <button class="btn" id="fs-btn" onclick="toggleFullscreen()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-        </svg>
-        Fullscreen
-      </button>
+      <div class="btn-group">
+        <!-- VR BUTTON — onclick wired to enterVR() defined in webxr-patch.js -->
+        <button class="btn vr-btn" id="vr-btn" onclick="enterVR()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8z"/>
+            <circle cx="8.5" cy="12" r="1.5"/><circle cx="15.5" cy="12" r="1.5"/>
+            <path d="M11 12h2"/>
+          </svg>
+          Enter VR
+        </button>
+        <!-- FULLSCREEN BUTTON -->
+        <button class="btn" id="fs-btn" onclick="toggleFullscreen()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+          </svg>
+          Fullscreen
+        </button>
+      </div>
     </div>
     <div id="bottombar">
       <div>
@@ -264,29 +171,41 @@
     </div>
   </div>
 
-  <script>
-    // ── CONFIGURATION ─────────────────────────────
-    const SPLAT_FILE = "https://huggingface.co/datasets/Sarah9999/neuroverse-scenes/resolve/main/scene.splat";
-    // ──────────────────────────────────────────────
+  <!-- VR TOAST -->
+  <div id="vr-toast">VR not available on this device.<br/>Use a Meta Quest or WebXR-compatible headset.</div>
 
-    // antimatter15 reads the file from ?url= query parameter
-    // Redirect once to inject it if not already present
-    const currentParams = new URLSearchParams(window.location.search);
-    if (!currentParams.get("url")) {
+  <!-- hidden stubs main.js expects -->
+  <div id="progress" style="display:none;"></div>
+  <div id="message"  style="display:none;"></div>
+  <div id="spinner"  style="display:none;"></div>
+  <div id="quality"  style="display:none;"><span id="fps"></span></div>
+  <div id="caminfo"  style="display:none;"><span id="camid"></span></div>
+
+  <canvas id="canvas" style="display:block;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;touch-action:none;"></canvas>
+
+  <!-- original splat renderer — untouched -->
+  <script src="main.js"></script>
+  <!-- WebXR layer bolted on top -->
+  <script src="webxr-patch.js"></script>
+
+  <script>
+    // Redirect to inject ?url= if missing (same logic as before)
+    const SPLAT_FILE = "https://huggingface.co/datasets/Sarah9999/neuroverse-scenes/resolve/main/scene.splat";
+    const p = new URLSearchParams(window.location.search);
+    if (!p.get("url")) {
       window.location.replace(window.location.pathname + "?url=" + encodeURIComponent(SPLAT_FILE));
     }
 
-    // Watch for canvas to appear → hide loader
+    // Hide loader when canvas appears
     const loaderEl = document.getElementById("loader");
     const hintEl   = document.getElementById("hint");
-
     const observer = new MutationObserver(() => {
       const canvas = document.querySelector("canvas");
       if (canvas) {
         observer.disconnect();
         setTimeout(() => {
           loaderEl.classList.add("hidden");
-          setTimeout(() => { hintEl.classList.add("hidden"); }, 5000);
+          setTimeout(() => hintEl.classList.add("hidden"), 5000);
         }, 1200);
       }
     });
@@ -295,37 +214,15 @@
     // Fullscreen
     function toggleFullscreen() {
       const btn = document.getElementById("fs-btn");
-      const exitIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg> Exit`;
+      const exitIcon  = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg> Exit`;
       const enterIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg> Fullscreen`;
-
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-        btn.innerHTML = exitIcon;
-      } else {
-        document.exitFullscreen();
-        btn.innerHTML = enterIcon;
-      }
+      if (!document.fullscreenElement) { document.documentElement.requestFullscreen(); btn.innerHTML = exitIcon; }
+      else { document.exitFullscreen(); btn.innerHTML = enterIcon; }
     }
-
     document.addEventListener("fullscreenchange", () => {
-      if (!document.fullscreenElement) {
+      if (!document.fullscreenElement)
         document.getElementById("fs-btn").innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg> Fullscreen`;
-      }
     });
   </script>
-
-  <!-- hidden elements that main.js expects to exist -->
-  <div id="progress" style="display:none;"></div>
-  <div id="message" style="display:none;"></div>
-  <div id="spinner" style="display:none;"></div>
-  <div id="quality" style="display:none;"><span id="fps"></span></div>
-  <div id="caminfo" style="display:none;"><span id="camid"></span></div>
-
-  <!-- canvas must have id="canvas" for main.js to find it -->
-  <canvas id="canvas" style="display:block;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;touch-action:none;"></canvas>
-
-  <!-- antimatter15 viewer — loads scene from ?url= param automatically -->
-  <script src="main.js"></script>
-
 </body>
 </html>

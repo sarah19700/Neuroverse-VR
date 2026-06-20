@@ -297,7 +297,7 @@ function translate4(a, x, y, z) {
 
 function createWorker(self) {
     let buffer;
-    let vertexCount = 0;
+    var vertexCount = 0;
     let viewProj;
     // 6*4 + 4 + 4 = 8*4
     // XYZ - Position (Float32)
@@ -737,7 +737,7 @@ let defaultViewMatrix = [
 ];
 let viewMatrix = defaultViewMatrix;
 async function main() {
-    let carousel = true;
+    var carousel = true;
     const params = new URLSearchParams(location.search);
     try {
         viewMatrix = JSON.parse(decodeURIComponent(location.hash.slice(1)));
@@ -765,7 +765,7 @@ async function main() {
         splatData.length / rowLength > 500000 ? 1 : 1 / devicePixelRatio;
     console.log(splatData.length / rowLength, downsample);
 
-    const worker = new Worker(
+    var worker = new Worker(
         URL.createObjectURL(
             new Blob(["(", createWorker.toString(), ")(self)"], {
                 type: "application/javascript",
@@ -779,7 +779,7 @@ async function main() {
 
     let projectionMatrix;
 
-    const gl = canvas.getContext("webgl2", {
+    var gl = canvas.getContext("webgl2", {
         antialias: false,
         xrCompatible: true,
     });
@@ -817,10 +817,10 @@ async function main() {
     );
     gl.blendEquationSeparate(gl.FUNC_ADD, gl.FUNC_ADD);
 
-    const u_projection = gl.getUniformLocation(program, "projection");
-    const u_viewport = gl.getUniformLocation(program, "viewport");
-    const u_focal = gl.getUniformLocation(program, "focal");
-    const u_view = gl.getUniformLocation(program, "view");
+    var u_projection = gl.getUniformLocation(program, "projection");
+    var u_viewport = gl.getUniformLocation(program, "viewport");
+    var u_focal = gl.getUniformLocation(program, "focal");
+    var u_view = gl.getUniformLocation(program, "view");
 
     // positions
     const triangleVertices = new Float32Array([-2, -2, 2, -2, 2, 2, -2, 2]);
@@ -845,7 +845,7 @@ async function main() {
     gl.vertexAttribIPointer(a_index, 1, gl.INT, false, 0, 0);
     gl.vertexAttribDivisor(a_index, 1);
 
-    const resize = () => {
+    var resize = () => {
         gl.uniform2fv(u_focal, new Float32Array([camera.fx, camera.fy]));
 
         projectionMatrix = getProjectionMatrix(

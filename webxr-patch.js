@@ -7,6 +7,7 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 (async function patchWebXR() {
+    const gl = document.getElementById("canvas").getContext("webgl2");
     const vrBtn   = document.getElementById("vr-btn");
     const vrToast = document.getElementById("vr-toast");
 
